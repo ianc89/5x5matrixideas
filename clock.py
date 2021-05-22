@@ -34,7 +34,7 @@ colours["Purple"] = (128,0,128)
 colours["Teal"] = (0,128,128)	
 colours["Navy"] = (0,0,128)	
 
-c_hour  = colours["White"]
+c_hour  = colours["Red"]
 c_min_1 = colours["Blue"]
 c_min_2 = colours["Green"]
 
