@@ -65,5 +65,5 @@ while True:
 			else:
 				rgbmatrix5x5.set_pixel(y_minute, x, colours["Blue"][0], colours["Blue"][1], colours["Blue"][2])
 		rgbmatrix5x5.show()
-		time.sleep(5)
+	time.sleep(5)
 
