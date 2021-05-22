@@ -34,6 +34,10 @@ colours["Purple"] = (128,0,128)
 colours["Teal"] = (0,128,128)	
 colours["Navy"] = (0,0,128)	
 
+c_hour  = colours["White"]
+c_min_1 = colours["Blue"]
+c_min_2 = colours["Green"]
+
 def get_pixel(value):
 	above_30 = False
 	if value > 30:
@@ -56,11 +60,12 @@ while True:
 	# Hour
 	for x in range(5):
 		#rgbmatrix5x5.clear()
-		rgbmatrix5x5.set_pixel(y_hour, x, colours["Red"][0], colours["Red"][1], colours["Red"][2], int(b_hour[x]))
+		# set pixel - x,y,r,g,b,brightness (used to switch off instead of clear)
+		rgbmatrix5x5.set_pixel(y_hour, x, c_hour[0], c_hour[1], c_hour[2], int(b_hour[x]))
 		if minute_over_30:
-			rgbmatrix5x5.set_pixel(y_minute, x, colours["Green"][0], colours["Green"][1], colours["Green"][2], int(b_minute[x]))
+			rgbmatrix5x5.set_pixel(y_minute, x, c_min_1[0], c_min_1[1], c_min_1[2], int(b_minute[x]))
 		else:
-			rgbmatrix5x5.set_pixel(y_minute, x, colours["Blue"][0], colours["Blue"][1], colours["Blue"][2], int(b_minute[x]))
+			rgbmatrix5x5.set_pixel(y_minute, x, c_min_2[0], c_min_2[1], c_min_2[2], int(b_minute[x]))
 		rgbmatrix5x5.show()
 	time.sleep(20)
 
