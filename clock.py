@@ -41,6 +41,7 @@ def get_pixel(value):
 		value = value-30
 	# Now convert to binary and pad to 5 digits to right
 	bval = bin(value)[2:].ljust(5,"0")
+	print (bval)
 	return bval, above_30
 
 
