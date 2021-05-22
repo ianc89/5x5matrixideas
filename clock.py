@@ -50,8 +50,8 @@ while True:
 	hour = now.hour
 	minute = now.minute
 	# Convert to binary points (on/off)
-	b_hour, over_30   = get_pixel(hour)
-	b_minute, over_30 = get_pixel(minute)
+	b_hour, hour_over_30   = get_pixel(hour)
+	b_minute, minute_over_30 = get_pixel(minute)
 	# Activate lights
 	# Hour
 	for x in range(5):
