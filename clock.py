@@ -55,14 +55,14 @@ while True:
 	# Activate lights
 	# Hour
 	for x in range(5):
-		rgbmatrix5x5.clear()
+		#rgbmatrix5x5.clear()
 		if b_hour[x] == "1":
-			rgbmatrix5x5.set_pixel(x, y_hour, colours["Red"][0], colours["Red"][1], colours["Red"][2])
+			rgbmatrix5x5.set_pixel(y_hour, x, colours["Red"][0], colours["Red"][1], colours["Red"][2])
 		if b_minute[x] == "1":
 			if minute_over_30:
-				rgbmatrix5x5.set_pixel(x, y_minute, colours["Green"][0], colours["Green"][1], colours["Green"][2])
+				rgbmatrix5x5.set_pixel(y_minute, x, colours["Green"][0], colours["Green"][1], colours["Green"][2])
 			else:
-				rgbmatrix5x5.set_pixel(x, y_minute, colours["Blue"][0], colours["Blue"][1], colours["Blue"][2])
+				rgbmatrix5x5.set_pixel(y_minute, x, colours["Blue"][0], colours["Blue"][1], colours["Blue"][2])
 		rgbmatrix5x5.show()
-		time.sleep(0.2)
+		time.sleep(5)
 
