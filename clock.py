@@ -41,7 +41,6 @@ def get_pixel(value):
 		value = value-30
 	# Now convert to binary and pad to 5 digits to right
 	bval = bin(value)[2:].ljust(5,"0")
-	print (bval)
 	return bval, above_30
 
 
@@ -65,5 +64,5 @@ while True:
 			else:
 				rgbmatrix5x5.set_pixel(y_minute, x, colours["Blue"][0], colours["Blue"][1], colours["Blue"][2])
 		rgbmatrix5x5.show()
-	time.sleep(5)
+	time.sleep(20)
 
