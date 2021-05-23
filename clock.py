@@ -38,7 +38,7 @@ colours["Navy"] = (0,0,128)
 c_hour  = colours["Red"]
 c_min_1 = colours["Blue"]
 c_min_2 = colours["Green"]
-c_sec_1 = colours["Cyan"]
+c_sec_1 = colours["Purple"]
 c_sec_2 = colours["Lime"]
 
 def get_pixel(value):
