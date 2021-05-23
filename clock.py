@@ -34,12 +34,13 @@ colours["Green"] = (0,128,0)
 colours["Purple"] = (128,0,128)	
 colours["Teal"] = (0,128,128)	
 colours["Navy"] = (0,0,128)	
+colours["Orange"] = (255,165,0)
 
 c_hour  = colours["Red"]
 c_min_1 = colours["Blue"]
 c_min_2 = colours["Green"]
 c_sec_1 = colours["Purple"]
-c_sec_2 = colours["Lime"]
+c_sec_2 = colours["Orange"]
 
 def get_pixel(value):
 	above_30 = False
