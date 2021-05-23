@@ -14,6 +14,7 @@ Press Ctrl+C to exit!
 rgbmatrix5x5 = RGBMatrix5x5()
 y_hour = 0
 y_minute = 1
+y_second = 2
 
 # Quick colour setup
 colours = {}
@@ -37,6 +38,8 @@ colours["Navy"] = (0,0,128)
 c_hour  = colours["Red"]
 c_min_1 = colours["Blue"]
 c_min_2 = colours["Green"]
+c_sec_1 = colours["Cyan"]
+c_sec_2 = colours["Lime"]
 
 def get_pixel(value):
 	above_30 = False
@@ -53,19 +56,29 @@ while True:
 	now = datetime.now()
 	hour = now.hour
 	minute = now.minute
+	second = now.second
 	# Convert to binary points (on/off)
 	b_hour, hour_over_30   = get_pixel(hour)
 	b_minute, minute_over_30 = get_pixel(minute)
+	b_second, second_over_30 = get_pixel(second)
 	# Activate lights
-	# Hour
+	# set pixel - x,y,r,g,b,brightness (used to switch off instead of clear)
 	for x in range(5):
-		#rgbmatrix5x5.clear()
-		# set pixel - x,y,r,g,b,brightness (used to switch off instead of clear)
+		# Hour
 		rgbmatrix5x5.set_pixel(y_hour, x, c_hour[0], c_hour[1], c_hour[2], int(b_hour[x]))
+		# Minutes
 		if minute_over_30:
 			rgbmatrix5x5.set_pixel(y_minute, x, c_min_1[0], c_min_1[1], c_min_1[2], int(b_minute[x]))
 		else:
 			rgbmatrix5x5.set_pixel(y_minute, x, c_min_2[0], c_min_2[1], c_min_2[2], int(b_minute[x]))
+		# Seconds
+		if second_over_30:
+			rgbmatrix5x5.set_pixel(y_second, x, c_sec_1[0], c_sec_1[1], c_sec_1[2], int(b_second[x]))
+		else:
+			rgbmatrix5x5.set_pixel(y_second, x, c_sec_2[0], c_sec_2[1], c_sec_2[2], int(b_second[x]))
 		rgbmatrix5x5.show()
-	time.sleep(20)
+	# If only showing minutes
+	# time.sleep(20)
+	# If showing seconds
+	time.sleep(0.5)
 
