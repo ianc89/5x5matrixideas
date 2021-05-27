@@ -14,6 +14,7 @@ class MatrixUpdate(RGBMatrix5x5):
 		output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + 128, 32) )
 
 		print (len(output))
+		print (output)
 		
 		# This gives the address array, which needs to be undone to put into same state as buffer	
 		tmp_buf = [[0, 0, 0, 1.0] for x in range(self._width * self._height)]
