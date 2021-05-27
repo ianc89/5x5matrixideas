@@ -97,82 +97,10 @@ class MatrixUpdate(RGBMatrix5x5):
 		self._get_current_state()
 		#self.show()
 
-	def _setup(self):
-        """Set up device."""
-        if self._is_setup:
-            return True
-
-        self._is_setup = True
-
-        if self.i2c is None:
-            try:
-                import smbus
-            except ImportError:
-                if version_info[0] < 3:
-                    raise ImportError('This library requires python-smbus\nInstall with: sudo apt-get install python-smbus')
-                elif version_info[0] == 3:
-                    raise ImportError('This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus')
-
-            try:
-                self.i2c = smbus.SMBus(1)
-            except IOError as e:
-                if hasattr(e, 'errno') and e.errno == 2:
-                    e.strerror += "\n\nMake sure you've enabled i2c in your Raspberry Pi configuration.\n"
-                raise e
-
-        try:
-            self._reset()
-        except IOError as e:
-            if hasattr(e, 'errno') and e.errno == 5:
-                e.strerror += '\n\nMake sure your LED SHIM is attached, and double-check your soldering.\n'
-            raise e
-
-        #self.show()
-
-        # Display initialization
-
-        # Switch to configuration bank
-        self._bank(_CONFIG_BANK)
-
-        # Switch to Picture Mode
-        self.i2c.write_i2c_block_data(self.address, _MODE_REGISTER, [_PICTURE_MODE])
-
-        # Disable audio sync
-        self.i2c.write_i2c_block_data(self.address, _AUDIOSYNC_REGISTER, [0])
-
-        enable_pattern = [
-            0b00000000, 0b10111111,
-            0b00111110, 0b00111110,
-            0b00111111, 0b10111110,
-            0b00000111, 0b10000110,
-            0b00110000, 0b00110000,
-            0b00111111, 0b10111110,
-            0b00111111, 0b10111110,
-            0b01111111, 0b11111110,
-            0b01111111, 0b00000000,
-        ]
-
-        # Switch to bank 1 ( frame 1 )
-        self._bank(1)
-
-        # Enable LEDs
-        self.i2c.write_i2c_block_data(self.address, 0x00, enable_pattern)
-
-        # Switch to bank 0 ( frame 0 )
-        self._bank(0)
-
-        # Enable LEDs
-        self.i2c.write_i2c_block_data(self.address, 0x00, enable_pattern)
-
-        try:
-            atexit.register(self._exit)
-        except NameError:
-            pass
-
-
-
 
 if __name__ == "__main__":
 	test = MatrixUpdate()
-	test._setup()
+	test.setup()
+	import time
+	time.sleep(60)
 	test._update_and_show()
