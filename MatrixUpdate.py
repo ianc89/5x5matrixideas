@@ -47,7 +47,7 @@ class MatrixUpdate(RGBMatrix5x5):
 				  (11, 92, 108),
 				  (12, 76, 109),
 				  (13, 77, 93),]
-		for i,r,g,b in enumerate(lookup):
+		for i,(r,g,b) in enumerate(lookup):
 			if r == iaddress:
 				return i,0
 			elif g == iaddress:
