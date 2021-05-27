@@ -10,21 +10,64 @@ class MatrixUpdate(RGBMatrix5x5):
 		output = []
 		for offset in range(0,144,32):
 			output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + offset, 32) )
-		return output
+		# This gives the address array, which needs to be undone to put into same state as buffer	
+		for iaddress in enumerate(output):
+			i,rgb = self._find_buffer(iaddress)
+			print (i,rgb)
+			self.buf[i][rgb] = output[i]
+		return
+
+	def _find_buffer(self, iaddress):
+		print (f"Find location of address {iaddress} relative to pixel")
+		lookup = [(118, 69, 85),
+				  (117, 68, 101),
+				  (116, 84, 100),
+				  (115, 83, 99),
+				  (114, 82, 98),
+				  (113, 81, 97),
+				  (112, 80, 96),
+				  (134, 21, 37),
+				  (133, 20, 36),
+				  (132, 19, 35),
+				  (131, 18, 34),
+				  (130, 17, 50),
+				  (129, 33, 49),
+				  (128, 32, 48),
+				  (127, 47, 63),
+				  (121, 41, 57),
+				  (122, 25, 58),
+				  (123, 26, 42),
+				  (124, 27, 43),
+				  (125, 28, 44),
+				  (126, 29, 45),
+				  (15, 95, 111),
+				  (8, 89, 105),
+				  (9, 90, 106),
+				  (10, 91, 107),
+				  (11, 92, 108),
+				  (12, 76, 109),
+				  (13, 77, 93),]
+		for i,r,g,b in enumerate(lookup):
+			if r == iaddress:
+				return i,0
+			elif g == iaddress:
+				return i,1
+			elif b == iaddress:
+				return i,2
+			else:
+				continue
+		print ("Error for {iaddress}")
+		return None,None
 
 	def _update_and_show(self):
 		"""Return the current state of the display, merge with any updates in the buffer and show"""
-		# Local pixel updates : self.buf
-		# Device status : _get_current_state()
-		# If we have been careful to not touch each others state, we should be able to add together
-		for local_pix, global_pix in zip(self.buf, self._get_current_state()):
-			print (local_pix, global_pix)
+		# This will read the matrix and update the buffer (this will overwrite any set_pixel changes)
+		self._get_current_state()
+		self.show()
+
 
 
 if __name__ == "__main__":
 	test = MatrixUpdate()
 	test.setup()
-	print ("Current state")
-	test._get_current_state()
-	print ("Comparison")
 	test._update_and_show()
