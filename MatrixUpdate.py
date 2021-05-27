@@ -97,7 +97,7 @@ class MatrixUpdate(RGBMatrix5x5):
 		self._get_current_state()
 		#self.show()
 
-def _setup(self):
+	def _setup(self):
         """Set up device."""
         if self._is_setup:
             return True
