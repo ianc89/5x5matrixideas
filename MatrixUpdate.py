@@ -12,6 +12,7 @@ class MatrixUpdate(RGBMatrix5x5):
 			output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + offset, 32) )
 		# This gives the address array, which needs to be undone to put into same state as buffer	
 		for iadd in enumerate(output):
+			print (iadd, output[iadd])
 			i,rgb = self._find_buffer(iadd)
 			print (i,rgb)
 			self.buf[i][rgb] = output[i]
