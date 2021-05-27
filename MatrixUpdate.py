@@ -56,7 +56,7 @@ class MatrixUpdate(RGBMatrix5x5):
 				return i,2
 			else:
 				continue
-		print ("Error for {iaddress}")
+		print (f"Error for {iaddress}")
 		return None,None
 
 	def _update_and_show(self):
