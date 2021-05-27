@@ -16,7 +16,7 @@ class MatrixUpdate(RGBMatrix5x5):
 
 		for iadd, out in enumerate(output):
 			i,rgb = self._find_buffer(iadd)
-			print (i,rgb)
+			print (i,rgb,iadd,out)
 			if i == None:
 				continue
 			tmp_buf[i][rgb] = out
