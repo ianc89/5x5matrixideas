@@ -19,7 +19,7 @@ class MatrixUpdate(RGBMatrix5x5):
 			print (i,rgb)
 			if i == None:
 				continue
-			tmp_buf[i][rgb] = output[i]
+			tmp_buf[i][rgb] = out
 		print (tmp_buf)
 		print (self.buf)
 
