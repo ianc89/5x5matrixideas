@@ -1,4 +1,7 @@
 from rgbmatrix5x5 import RGBMatrix5x5
+_ENABLE_OFFSET = 0x00
+_BLINK_OFFSET = 0x12
+_COLOR_OFFSET = 0x24
 class MatrixUpdate(RGBMatrix5x5):
 	"""Updated class to adjust some of the access to the LEDs"""
 	""" https://buildmedia.readthedocs.org/media/pdf/smbus2/latest/smbus2.pdf """
