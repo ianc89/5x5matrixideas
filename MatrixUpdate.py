@@ -75,10 +75,10 @@ class MatrixUpdate(RGBMatrix5x5):
 				  (15, 95, 111),
 				  (8, 89, 105),
 				  (9, 90, 106),
-				  (10, 91, 107),
-				  (11, 92, 108),
-				  (12, 76, 109),
-				  (13, 77, 93),]
+				  (10, 91, 107),]
+				  #(11, 92, 108),
+				  #(12, 76, 109),
+				  #(13, 77, 93),]
 		for i,(r,g,b) in enumerate(lookup):
 			if r == iaddress:
 				return i,0
@@ -100,7 +100,7 @@ class MatrixUpdate(RGBMatrix5x5):
 
 if __name__ == "__main__":
 	test = MatrixUpdate()
-	test.setup()
+	test.setup() # This calls show which I think resets the buffer...
 	import time
 	time.sleep(60)
 	test._update_and_show()
