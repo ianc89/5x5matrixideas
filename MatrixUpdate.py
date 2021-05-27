@@ -22,6 +22,8 @@ class MatrixUpdate(RGBMatrix5x5):
 			tmp_buf[i][rgb] = out
 		print (tmp_buf)
 		print (self.buf)
+		self.buf = tmp_buf
+		print (self.buf)
 
 	def _find_buffer(self, iaddress):
 		print (f"Find location of address {iaddress} relative to pixel")
