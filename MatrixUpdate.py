@@ -28,5 +28,7 @@ class MatrixUpdate(RGBMatrix5x5):
 if __name__ == "__main__":
 	test = MatrixUpdate()
 	test.setup()
+	print ("Current state")
 	test._get_current_state()
+	print ("Comparison")
 	test._update_and_show()
