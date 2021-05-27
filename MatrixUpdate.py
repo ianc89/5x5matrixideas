@@ -8,10 +8,10 @@ class MatrixUpdate(RGBMatrix5x5):
 	def _get_current_state(self):
 		"""Read the current buffer back from the LED"""
 		output = []
-		for offset in range(0,144,32):
+		for offset in range(0,128,32):
 			print (offset)
 			output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + offset, 32) )
-		#output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + 128, 16) )
+		output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + 128, 16) )
 
 		print (len(output))
 		print (output)
