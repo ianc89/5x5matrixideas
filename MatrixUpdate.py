@@ -12,11 +12,13 @@ class MatrixUpdate(RGBMatrix5x5):
 			output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + offset, 32) )
 		
 		# This gives the address array, which needs to be undone to put into same state as buffer	
+		print (self.buf)
 		for iadd, out in enumerate(output):
 			i,rgb = self._find_buffer(iadd)
 			if i == None:
 				continue
 			self.buf[i][rgb] = output[i]
+		print (self.buf)
 
 	def _find_buffer(self, iaddress):
 		print (f"Find location of address {iaddress} relative to pixel")
