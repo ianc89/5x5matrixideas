@@ -13,3 +13,8 @@ class MatrixUpdate(RGBMatrix5x5):
 		print (f"Address {self.address}")
 		for value in output:
 			print (value)
+
+if __name__ == "__main__":
+	test = MatrixUpdate()
+	test.setup()
+	test._get_current_state()
