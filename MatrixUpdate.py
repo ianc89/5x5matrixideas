@@ -10,10 +10,6 @@ class MatrixUpdate(RGBMatrix5x5):
 		output = []
 		for offset in range(0,144,32):
 			output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + offset, 32) )
-			
-		print (f"Address {self.address}")
-		for value in output:
-			print (value)
 		return output
 
 	def _update_and_show(self):
