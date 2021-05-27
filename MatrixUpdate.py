@@ -28,26 +28,26 @@ class MatrixUpdate(RGBMatrix5x5):
 		"""Read the current buffer back from the LED"""
 		output = [] # Size is 144
 		for offset in range(0,128,32):
-			print (offset)
+			# print (offset)
 			output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + offset, 32) )
 		output.extend ( self.i2c.read_i2c_block_data(self.address, _COLOR_OFFSET + 128, 16) )
 
-		print (len(output))
-		print (output)
+		# print (len(output))
+		# print (output)
 		
 		# This gives the address array, which needs to be undone to put into same state as buffer	
 		tmp_buf = [[0, 0, 0, 1.0] for x in range(self._width * self._height)]
 
 		for iadd, out in enumerate(output):
 			i,rgb = self._find_buffer(iadd)
-			print (i,rgb,iadd,out)
+			# print (i,rgb,iadd,out)
 			if i == None:
 				continue
 			tmp_buf[i][rgb] = out
 		print (tmp_buf)
-		print (self.buf)
-		self.buf = tmp_buf
-		print (self.buf)
+		# print (self.buf)
+		# self.buf = tmp_buf
+		# print (self.buf)
 
 	def _find_buffer(self, iaddress):
 		#print (f"Find location of address {iaddress} relative to pixel")
