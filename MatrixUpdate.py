@@ -21,7 +21,7 @@ class MatrixUpdate(RGBMatrix5x5):
 		# Local pixel updates : self.buf
 		# Device status : _get_current_state()
 		# If we have been careful to not touch each others state, we should be able to add together
-		for local_pix, global_pix in zip(self.buff, self._get_current_state()):
+		for local_pix, global_pix in zip(self.buf, self._get_current_state()):
 			print (local_pix, global_pix)
 
 
