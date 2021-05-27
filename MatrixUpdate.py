@@ -71,7 +71,7 @@ class MatrixUpdate(RGBMatrix5x5):
 		"""Return the current state of the display, merge with any updates in the buffer and show"""
 		# This will read the matrix and update the buffer (this will overwrite any set_pixel changes)
 		self._get_current_state()
-		self.show()
+		#self.show()
 
 
 
