@@ -19,6 +19,7 @@ class driver():
 		#self.i2c = smbus.SMBus(1)
 		import smbus2
 		self.i2c = smbus2.SMBus(1)
+		self.i2c.enable_pec(True)
 		# Configure the chip
 		# Switch to configuration bank
 		self.switch_bank(self.properties._CONFIG_BANK)
