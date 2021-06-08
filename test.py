@@ -30,6 +30,7 @@ class matrix5x5(IS31FL3731):
 			     (2,4) : 14, 
 			     (3,4) : 15, 
 			     (4,4) : 24,}
+		print (x,y,pixel[(x,y)])
 		return pixel[(x,y)]
 
 
