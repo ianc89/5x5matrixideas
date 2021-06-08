@@ -66,10 +66,7 @@ class driver():
 	def test(self):
 		self.activate_pixel(0, 0,0,[200,0,0])
 		self.activate_pixel(0, 0,1,[200,0,0])
-		self.activate_pixel(1, 0,2,[200,0,0])
-		self.activate_pixel(1, 0,3,[200,0,0])
-		self.activate_pixel(1, 0,4,[200,0,0])
-		self.activate_pixel(1, 4,4,[200,0,0])
+
 
 
 		
