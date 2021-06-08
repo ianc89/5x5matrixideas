@@ -47,6 +47,7 @@ class driver():
 
 	def activate_pixel(self, frame, x, y, rgb):
 		self.switch_bank(frame)
+		self.i2c.write_i2c_block_data(self.address, self.properties._FRAME_REGISTER, [frame] )
 
 		# Write a function which only touches LED for single pixel
 		# Given x,y -> get the lookup index
