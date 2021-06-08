@@ -66,6 +66,8 @@ class driver():
 	def test(self):
 		self.activate_pixel(0, 0,0,[200,0,0])
 		self.activate_pixel(0, 0,0,[200,0,0])
+		import time
+		time.sleep(100)
 		
 
 
