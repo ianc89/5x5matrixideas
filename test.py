@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	import board
 	import time
 	display = matrix5x5(busio.I2C(board.SCL, board.SDA), 0x74)
-
+	properties = properties()
 	for x in range(display.width):
 		for y in range(display.height):
 			print (x,y)
