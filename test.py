@@ -36,6 +36,6 @@ if __name__ == "__main__":
 			#time.sleep(1)
 			#display.pixel(rgb,2,50)
 			#time.sleep(1)
-			display.set_pixel(x,y,50,50,50)
+			display.set_pixel(x,y,50,50,50,frame=2)
 
 
