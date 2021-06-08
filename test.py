@@ -4,7 +4,7 @@ class matrix5x5(IS31FL3731):
 	width = 5
 	height = 5
 	@staticmethod
-    def pixel_addr(x, y):
+	def pixel_addr(x, y):
     	pixel = {(0,0) : 0,
 			     (1,0) : 9, 
 			     (2,0) : 10, 
