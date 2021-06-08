@@ -1,6 +1,7 @@
 """ Class to drive the matrix """
 from adafruit_is31fl3731 import IS31FL3731
 from matrix_properties import properties
+""" https://circuitpython.readthedocs.io/projects/is31fl3731/en/latest/_modules/adafruit_is31fl3731.html#IS31FL3731 """
 
 class matrix5x5(IS31FL3731):
 	width = 5
