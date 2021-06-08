@@ -41,10 +41,12 @@ class driver():
 		# Loop through the banks (frames)
 		for frame in range(8):
 			self.switch_bank(frame)
+			self.i2c.write_i2c_block_data(self.address, self.properties._FRAME_REGISTER, [frame] )
 			self.i2c.write_i2c_block_data(self.address, self.properties._MODE_REGISTER, enable_pattern)
 
 	def activate_pixel(self, frame, x, y, rgb):
 		self.switch_bank(self.properties._FRAME_0)
+
 		# Write a function which only touches LED for single pixel
 		# Given x,y -> get the lookup index
 		addr_loc = self.properties.pixel[(x,y)]
