@@ -69,7 +69,7 @@ class driver():
 		self.activate_pixel(0, 0,2,[200,0,0])
 		self.activate_pixel(0, 0,3,[200,0,0])
 		self.activate_pixel(0, 0,4,[200,0,0])
-		self.activate_pixel(0, 5,5,[200,0,0])
+		self.activate_pixel(0, 4,4,[200,0,0])
 
 
 		
