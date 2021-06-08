@@ -36,13 +36,25 @@ class matrix5x5(IS31FL3731):
 if __name__ == "__main__":
 	import busio
 	import board
+	import time
 	display = matrix5x5(busio.I2C(board.SCL, board.SDA), 0x74)
 	# draw a box on the display
 	# first draw the top and bottom edges
 	for x in range(display.width):
+		print (x,0,50)
 		display.pixel(x, 0, 50)
+		time.sleep(1)
+		print (x,display.height - 1, 50)
 		display.pixel(x, display.height - 1, 50)
+		time.sleep(1)
 	# now draw the left and right edges
-		for y in range(display.height):
-			display.pixel(0, y, 50)
-			display.pixel(display.width - 1, y, 50)
+	for y in range(display.height):
+		print (0, y, 50)
+		display.pixel(0, y, 50)
+		time.sleep(1)
+		print (display.width - 1, y, 50)
+		display.pixel(display.width - 1, y, 50)
+		time.sleep(1)
+
+
+
