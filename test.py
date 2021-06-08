@@ -34,7 +34,8 @@ class matrix5x5(IS31FL3731):
 
 
 if __name__ == "__main__":
-	display = matrix5x5()
+	import smbus2
+	display = matrix5x5(smbus2.SMBus(1), 0x74)
 	# draw a box on the display
 	# first draw the top and bottom edges
 	for x in range(display.width):
