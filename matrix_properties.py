@@ -1,8 +1,20 @@
 """ Class to hold properties for the driver """
+""" https://www.issi.com/WW/pdf/31FL3731.pdf """
 
 class properties():
 	def __init__(self):
-		# Addresses
+		# Addresses for registers
+		self._FRAME_0   = 0x00
+		self._FRAME_1   = 0x01
+		self._FRAME_2   = 0x02
+		self._FRAME_3   = 0x03
+		self._FRAME_4   = 0x04
+		self._FRAME_5   = 0x05
+		self._FRAME_6   = 0x06
+		self._FRAME_7   = 0x07
+		self._FRAME_8   = 0x08
+
+		# Addresses for function register
 		self._MODE_REGISTER      = 0x00
 		self._FRAME_REGISTER     = 0x01
 		self._AUTOPLAY1_REGISTER = 0x02
@@ -14,9 +26,13 @@ class properties():
 		self._SHUTDOWN_REGISTER  = 0x0a
 		self._GAIN_REGISTER      = 0x0b
 		self._ADC_REGISTER       = 0x0c
+
+		# Config bank == Function register
 		self._CONFIG_BANK        = 0x0b
 		self._BANK_ADDRESS       = 0xfd
-		self._PICTURE_MODE       = 0x00
+
+		# Functions in configuration register
+		self._PICTURE_MODE       = 0x00 # This is technically only for frame 0
 		self._AUTOPLAY_MODE      = 0x08
 		self._AUDIOPLAY_MODE     = 0x18
 		self._ENABLE_OFFSET      = 0x00
@@ -25,7 +41,7 @@ class properties():
 		# Size
 		self.width  = 5
 		self.height = 5
-		# Gamma (?)
+		# Gamma (intensity steps for better shifting for human eye, I think)
 		self.LED_GAMMA = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2,
 						  2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5,

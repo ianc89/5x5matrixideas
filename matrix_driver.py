@@ -9,10 +9,8 @@ class driver():
 		self.LED_GAMMA  = self.properties.LED_GAMMA
 		self.buffer     = {}
 
-	def switch_bank(self, bank=None):
+	def switch_bank(self, bank):
 		"""Switch display driver memory bank."""
-		if bank is None:
-			return self.i2c.readfrom_mem(self.address, self.properties._BANK_ADDRESS, 1)[0]
 		self.i2c.write_i2c_block_data(self.address, self.properties._BANK_ADDRESS, [bank])
 
 	def setup(self):
