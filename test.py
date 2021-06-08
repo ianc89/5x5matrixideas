@@ -19,7 +19,7 @@ if __name__ == "__main__":
 		for y in range(display.height):
 			print (x,y)
 			rgb_loc = properties.pixel[(x,y)]
-			rgb = properties.lookup(rgb_loc)
+			rgb = properties.lookup[rgb_loc]
 			display.pixel(rgb,0,50)
 			time.sleep(1)
 			display.pixel(rgb,1,50)
