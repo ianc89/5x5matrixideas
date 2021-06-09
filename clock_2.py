@@ -17,6 +17,8 @@ Press Ctrl+C to exit!
 
 # Attach to the device
 rgbmatrix5x5 = matrix5x5(busio.I2C(board.SCL, board.SDA), 0x74)
+# Place into initial display frame
+rgbmatrix5x5.frame(0)
 y_hour   = 0
 y_minute = 1
 y_second = 2
@@ -71,12 +73,12 @@ while True:
 	# set pixel - x,y,r,g,b,brightness (used to switch off instead of clear)
 	for x in range(5):
 		# Hour
-		if b_hour[x] == 1:
+		if b_hour[x] == "1":
 			rgbmatrix5x5.set_pixel(y_hour, x, c_hour[0], c_hour[1], c_hour[2], frame=0)
 		else:
 			rgbmatrix5x5.set_pixel(y_hour, x, 0, 0, 0, frame=0)
 		# Minutes
-		if b_minute[x] == 1:
+		if b_minute[x] == "1":
 			if minute_over_30:
 				rgbmatrix5x5.set_pixel(y_minute, x, c_min_1[0], c_min_1[1], c_min_1[2], frame=0)
 			else:
@@ -84,7 +86,7 @@ while True:
 		else:
 			rgbmatrix5x5.set_pixel(y_minute, x, 0, 0, 0, frame=0)
 		# Seconds
-		if b_second[x] == 1:
+		if b_second[x] == "1":
 			if second_over_30:
 				rgbmatrix5x5.set_pixel(y_second, x, c_sec_1[0], c_sec_1[1], c_sec_1[2], frame=0)
 			else:
