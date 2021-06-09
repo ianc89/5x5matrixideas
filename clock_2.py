@@ -37,17 +37,19 @@ colours["Silver"] = (192,192,192)
 colours["Gray"] = (128,128,128)	
 colours["Maroon"] = (128,0,0)	
 colours["Olive"] = (128,128,0)	
+colours["LightGreen"] = (153,255,153)
 colours["Green"] = (0,128,0)	
+colours["LightPurple"] = 288,142,288
 colours["Purple"] = (128,0,128)	
 colours["Teal"] = (0,128,128)	
 colours["Navy"] = (0,0,128)	
 colours["Orange"] = (255,165,0)
 
 c_hour  = colours["Red"]
-c_min_1 = colours["Blue"]
+c_min_1 = colours["LightGreen"]
 c_min_2 = colours["Green"]
-c_sec_1 = colours["Purple"]
-c_sec_2 = colours["Orange"]
+c_sec_1 = colours["LightPurple"]
+c_sec_2 = colours["Purple"]
 
 def get_pixel(value):
 	above_30 = False
