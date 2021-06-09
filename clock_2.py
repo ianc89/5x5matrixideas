@@ -39,6 +39,7 @@ colours["Maroon"] = (128,0,0)
 colours["Olive"] = (128,128,0)	
 colours["LightGreen"] = (153,255,153)
 colours["Green"] = (0,128,0)	
+colours["DarkGreen"] = (0,102,0)	
 colours["LightPurple"] = (228,142,228)
 colours["Purple"] = (128,0,128)	
 colours["Teal"] = (0,128,128)	
@@ -46,7 +47,7 @@ colours["Navy"] = (0,0,128)
 colours["Orange"] = (255,165,0)
 
 c_hour  = colours["Red"]
-c_min_1 = colours["LightGreen"]
+c_min_1 = colours["DarkGreen"]
 c_min_2 = colours["Green"]
 c_sec_1 = colours["LightPurple"]
 c_sec_2 = colours["Purple"]
