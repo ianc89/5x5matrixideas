@@ -71,12 +71,12 @@ while True:
 	# set pixel - x,y,r,g,b,brightness (used to switch off instead of clear)
 	for x in range(5):
 		# Hour
-		if b_hour[x]:
+		if b_hour[x] == 1:
 			rgbmatrix5x5.set_pixel(y_hour, x, c_hour[0], c_hour[1], c_hour[2], frame=0)
 		else:
 			rgbmatrix5x5.set_pixel(y_hour, x, 0, 0, 0, frame=0)
 		# Minutes
-		if b_minute[x]:
+		if b_minute[x] == 1:
 			if minute_over_30:
 				rgbmatrix5x5.set_pixel(y_minute, x, c_min_1[0], c_min_1[1], c_min_1[2], frame=0)
 			else:
@@ -84,7 +84,7 @@ while True:
 		else:
 			rgbmatrix5x5.set_pixel(y_minute, x, 0, 0, 0, frame=0)
 		# Seconds
-		if b_second[x]:
+		if b_second[x] == 1:
 			if second_over_30:
 				rgbmatrix5x5.set_pixel(y_second, x, c_sec_1[0], c_sec_1[1], c_sec_1[2], frame=0)
 			else:
