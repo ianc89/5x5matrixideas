@@ -83,7 +83,7 @@ while True:
 		# Minutes
 		if b_minute[x] == "1":
 			if minute_over_30:
-				rgbmatrix5x5.set_pixel(y_minute, x, c_min_2[0], c_min2[1], c_min_2[2], frame=0)
+				rgbmatrix5x5.set_pixel(y_minute, x, c_min_2[0], c_min_2[1], c_min_2[2], frame=0)
 			else:
 				rgbmatrix5x5.set_pixel(y_minute, x, c_min_1[0], c_min_1[1], c_min_1[2], frame=0)
 		else:
